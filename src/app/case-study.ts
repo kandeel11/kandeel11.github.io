@@ -17,7 +17,11 @@ import { CaseShots } from './case-shots';
       <p class="summary">{{ c.summary }}</p>
 
       @if (c.shots?.length) {
-        <app-case-shots [shots]="c.shots!" [label]="c.name" />
+        @if (c.shotsSource) {
+          <app-case-shots [shots]="c.shots!" [label]="c.name" [source]="c.shotsSource" />
+        } @else {
+          <app-case-shots [shots]="c.shots!" [label]="c.name" />
+        }
       }
 
       @if (c.problem) {
@@ -46,6 +50,9 @@ import { CaseShots } from './case-shots';
 
       <p class="foot">
         <span class="stack">Built with {{ c.stack }}.</span>
+        @if (c.live) {
+          <a [href]="c.live" target="_blank" rel="noopener">Live site</a>
+        }
         @if (c.repo) {
           <a [href]="c.repo" target="_blank" rel="noopener">Code on GitHub</a>
         }

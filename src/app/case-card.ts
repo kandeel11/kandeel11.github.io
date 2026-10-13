@@ -22,6 +22,9 @@ import { Case } from './content';
             Read the case
           </button>
         }
+        @if (c.live) {
+          <a class="repo" [href]="c.live" target="_blank" rel="noopener">Live site</a>
+        }
         @if (c.repo) {
           <a class="repo" [href]="c.repo" target="_blank" rel="noopener">GitHub</a>
         }

@@ -20,9 +20,11 @@ export interface Case {
   did: string[];
   story?: { caption: string; lines: Line[] };
   shots?: Shot[];
+  shotsSource?: string;
   note?: string;
   stack: string;
   repo?: string;
+  live?: string;
 }
 
 export interface Story {
@@ -204,6 +206,50 @@ export const projects: Case[] = [
     repo: 'https://github.com/kandeel11/AngularProject',
   },
   {
+    id: 'ecobazar',
+    name: 'EcoBazar',
+    context: 'ITI client-side track, team of five, team lead, 2026',
+    highlight: 'A grocery store for customers, sellers and admins that runs entirely in the browser.',
+    tags: 'JavaScript, OOP, Bootstrap, Chart.js',
+    summary:
+      'An organic grocery store where customers shop and review products, sellers manage stock and orders, and admins oversee users, sellers and sales.',
+    problem:
+      'The track allowed client-side code only, so stock, orders, carts and reviews had to work with no server or database, and five of us had about a month to build it without overwriting each other’s work.',
+    did: [
+      'Led the five-person team: split the work by page and role, and every change went in through a feature branch and a pull request.',
+      'localStorage acts as the database, with every read and write going through one storage service, so a cart or wishlist change in one tab shows up in the others.',
+      'Customer, Seller and Admin are ES6 classes built on one User base class with private fields.',
+      'Each product in an order has its own status, so an order can be partly completed, and a cancellation by the customer or the seller puts the stock back.',
+      'Seller pages for products and orders, an admin panel with Chart.js charts, and reviews limited to one per customer per product.',
+    ],
+    shots: [
+      {
+        src: 'shots/ecobazar-catalog.webp',
+        alt: 'EcoBazar product catalog with category counts, price filter and organic product cards',
+        caption: 'The shop: 70 seeded products across seven categories, with search, filters and sorting.',
+      },
+      {
+        src: 'shots/ecobazar-home.webp',
+        alt: 'EcoBazar home page with a hero banner and promotional tiles',
+        caption: 'The home page, which also seeds the products and demo users on the first visit.',
+      },
+      {
+        src: 'shots/ecobazar-details.webp',
+        alt: 'Product details page for organic bananas with price, discount, quantity and add to cart',
+        caption: 'Product details: discount, stock status, quantity limited by stock, and review tabs.',
+      },
+      {
+        src: 'shots/ecobazar-seller.webp',
+        alt: 'Seller dashboard listing the seller’s products with price, stock and edit and delete actions',
+        caption: 'A seller’s dashboard with their own products, stock levels and orders.',
+      },
+    ],
+    shotsSource: 'Shop screens from the live site; the seller dashboard from a local run of the same code.',
+    stack: 'JavaScript (ES6 modules), HTML, CSS, Bootstrap 5, Chart.js',
+    repo: 'https://github.com/kandeel11/CST-E-commerce-Project',
+    live: 'https://kandeel11.github.io/CST-E-commerce-Project/',
+  },
+  {
     id: 'track-management',
     name: 'TrackManagement',
     context: 'Personal project, 2026',
@@ -228,6 +274,18 @@ export const projects: Case[] = [
         { kind: 'pass', text: 'POST /api/tracks  201 Created  isrc EGWEG2400001' },
       ],
     },
+    shots: [
+      {
+        src: 'shots/trackmanagement-list.webp',
+        alt: 'Track list with filters for artist, genre and status, and a status badge on each track',
+        caption: 'The catalog, filtered by artist, genre and status, with each track’s step in the release flow.',
+      },
+      {
+        src: 'shots/trackmanagement-detail.webp',
+        alt: 'Track details showing the normalized ISRC, genre, release date and a table of distributions per platform',
+        caption: 'One track: the ISRC as the value object stores it, and where it went live or was rejected.',
+      },
+    ],
     stack: '.NET 10, EF Core, SQL Server, FluentValidation, JWT, Angular',
     repo: 'https://github.com/kandeel11/TrackManagment',
   },

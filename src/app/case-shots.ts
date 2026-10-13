@@ -25,7 +25,7 @@ import { Shot } from './content';
           }
         </div>
       }
-      <p class="source">Screens from a local run with seed data.</p>
+      <p class="source">{{ source() }}</p>
     </figure>
   `,
   styleUrl: './case-shots.css',
@@ -33,6 +33,7 @@ import { Shot } from './content';
 export class CaseShots {
   readonly shots = input.required<Shot[]>();
   readonly label = input('Project');
+  readonly source = input('Screens from a local run with seed data.');
   // Back to the first screen whenever a different project's shots come in.
   protected readonly index = linkedSignal({ source: this.shots, computation: () => 0 });
   protected readonly current = computed(() => this.shots()[Math.min(this.index(), this.shots().length - 1)]);
