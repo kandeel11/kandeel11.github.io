@@ -1,0 +1,103 @@
+:host {
+  display: block;
+}
+
+.proof {
+  margin: 0;
+  padding: 0.875rem 1.25rem 1.125rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.625rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.source {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 600;
+  font-size: 0.9375rem;
+}
+
+.controls {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.count {
+  margin-right: 0.375rem;
+  color: var(--muted);
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
+}
+
+button {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+button:hover {
+  color: var(--ink);
+  border-color: var(--border);
+}
+
+.stage {
+  display: grid;
+}
+
+.stage > * {
+  grid-area: 1 / 1;
+}
+
+.sizer {
+  visibility: hidden;
+}
+
+.caption {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.slide .caption {
+  animation: caption-in 300ms ease-out 2.1s both;
+}
+
+@keyframes caption-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 26rem) {
+  .count {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slide .caption {
+    animation: none;
+  }
+}
