@@ -203,7 +203,7 @@ export const projects: Case[] = [
       },
     ],
     stack: '.NET 10, EF Core, SQL Server, MediatR, ASP.NET Identity, SignalR, Angular 21',
-    repo: 'https://github.com/kandeel11/AngularProject',
+    repo: 'https://github.com/kandeel11/Vortex',
   },
   {
     id: 'ecobazar',
@@ -287,7 +287,7 @@ export const projects: Case[] = [
       },
     ],
     stack: '.NET 10, EF Core, SQL Server, FluentValidation, JWT, Angular',
-    repo: 'https://github.com/kandeel11/TrackManagment',
+    repo: 'https://github.com/kandeel11/TrackManagement',
   },
   {
     id: 'floor-plan',

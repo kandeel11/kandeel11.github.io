@@ -127,8 +127,16 @@
     </div>
     <div class="contact-card">
       <h2>Contact</h2>
-      <p>I’m looking for a backend or full stack .NET role, in Egypt or remote.</p>
-      <p><a [href]="'mailto:' + email">{{ email }}</a></p>
+      <p>I’m looking for a backend or full stack .NET role: on-site in Egypt, remote, or with relocation.</p>
+      <ul class="contact-list">
+        <li><span>Email</span><a [href]="'mailto:' + email">{{ email }}</a></li>
+        <li><span>Phone</span><a href="tel:+201013350442">+20 101 335 0442</a></li>
+        <li>
+          <span>LinkedIn</span>
+          <a href="https://linkedin.com/in/mohamed-khaleed-16695a176" target="_blank" rel="noopener">mohamed-khaleed</a>
+        </li>
+        <li><span>GitHub</span><a href="https://github.com/kandeel11" target="_blank" rel="noopener">kandeel11</a></li>
+      </ul>
       <a class="btn" [href]="cv" download>Download CV (PDF)</a>
     </div>
   </section>

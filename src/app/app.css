@@ -280,6 +280,41 @@ dd {
   margin: 0 0 0.75rem;
 }
 
+.contact-list {
+  list-style: none;
+  margin: 0 0 1.125rem;
+  padding: 0;
+}
+
+.contact-list li {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.contact-list li:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.contact-list span {
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+.contact-list a {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 26rem) {
+  .contact-list li {
+    grid-template-columns: 1fr;
+    gap: 0.125rem;
+  }
+}
+
 .contact-card .btn {
   margin-top: 0.25rem;
 }
