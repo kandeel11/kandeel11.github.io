@@ -127,6 +127,12 @@ h1 {
   color: var(--muted);
 }
 
+.status {
+  margin: 0 0 1.25rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+}
+
 .hero-links {
   display: flex;
   flex-wrap: wrap;
