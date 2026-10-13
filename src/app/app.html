@@ -82,7 +82,7 @@
     </div>
     <div class="grid grid-2">
       @for (item of projects; track item.id) {
-        <app-case-card [item]="item" (open)="openCase($event)" />
+        <app-case-card [item]="item" [wide]="$last && $index % 2 === 0" (open)="openCase($event)" />
       }
     </div>
   </section>

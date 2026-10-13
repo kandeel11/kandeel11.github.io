@@ -293,13 +293,52 @@ export const projects: Case[] = [
     id: 'floor-plan',
     name: 'Floor Plan Generator',
     context: 'B.Sc. graduation project, 2024',
-    highlight: 'Turns rough sketches into 2D and 3D floor plans with deep learning.',
-    tags: 'Python, deep learning',
+    highlight: 'Give it the outer walls of an apartment and it lays out the rooms and the walls between them.',
+    tags: 'Python, PyTorch, ResNet-34, DeepLab',
     summary:
-      'Turns rough sketches into 2D and 3D floor plans with deep learning, so the first drafts of a design don’t have to be drawn by hand.',
-    problem: '',
-    did: [],
-    stack: 'Python, deep learning',
+      'A deep-learning pipeline that takes an apartment’s outer boundary and front door and returns a 2D floor plan with rooms and interior walls.',
+    problem:
+      'The first layout of an apartment is drawn by hand inside walls that are already fixed. We wanted a model to propose that layout from the boundary alone, room by room, the way a designer would.',
+    did: [
+      'Turned the input, a polygon of the outer walls plus the door position and area, into the 256-pixel boundary and inside masks the networks train on.',
+      'Split the work across four networks: one places the living room, one decides whether another room fits or the plan is done, one predicts where each room type goes, and one predicts the interior walls.',
+      'Built the networks on ResNet-34, with DeepLab-style dilated convolutions for the location and wall maps.',
+      'Turned the predicted wall map into clean straight wall lines, merging and snapping pieces that are almost aligned.',
+    ],
+    shots: [
+      {
+        src: 'shots/floorplan-boundary.webp',
+        alt: 'An empty apartment outline on the left and the generated 2D floor plan with labelled rooms on the right',
+        caption: 'What the project does: the outer boundary goes in, a 2D plan with rooms and walls comes out.',
+      },
+      {
+        src: 'shots/floorplan-wall-model.webp',
+        alt: 'Wall model slide showing boundary, inside, room and wall masks from the dataset next to the network layers',
+        caption: 'The training data for one plan: boundary, inside, room and wall masks, next to the wall network.',
+      },
+      {
+        src: 'shots/floorplan-living-model.webp',
+        alt: 'Living model slide with boundary and inside masks and a ResNet-34 network that outputs a 2D coordinate',
+        caption: 'The living-room network reads the boundary and inside masks and returns one point: where the living room goes.',
+      },
+      {
+        src: 'shots/floorplan-continue-model.webp',
+        alt: 'Continue model slide with the room mask and a network that outputs continue or terminate',
+        caption: 'The continue network looks at the rooms placed so far and decides whether to add another one.',
+      },
+      {
+        src: 'shots/floorplan-location-model.webp',
+        alt: 'Location model slide with a DeepLab ASPP network that outputs a prediction map per room type',
+        caption: 'The location network predicts a map of where each room type should go.',
+      },
+      {
+        src: 'shots/floorplan-outputs.webp',
+        alt: 'Six generated plans, each a black apartment shape with green interior walls',
+        caption: 'Plans the trained models produced: the apartment in black, the predicted interior walls in green.',
+      },
+    ],
+    shotsSource: 'Images from the project’s README on GitHub.',
+    stack: 'Python, PyTorch, ResNet-34, DeepLab-ASPP, OpenCV, NumPy',
     repo: 'https://github.com/kandeel11/floorplan-AI-GP',
   },
 ];
